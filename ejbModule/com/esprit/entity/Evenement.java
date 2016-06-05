@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -14,6 +15,7 @@ public class Evenement implements Serializable{
 	private Date dateDebut;
 	private Date dateFin;
 	private String description;
+	private Administrateur administrateur;
 	
 	
 	@Id
@@ -40,6 +42,13 @@ public class Evenement implements Serializable{
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	@ManyToOne
+	public Administrateur getAdministrateur() {
+		return administrateur;
+	}
+	public void setAdministrateur(Administrateur administrateur) {
+		this.administrateur = administrateur;
 	}
 	
 

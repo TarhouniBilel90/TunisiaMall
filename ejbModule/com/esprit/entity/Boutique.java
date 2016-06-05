@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -16,13 +17,11 @@ public class Boutique implements Serializable{
 	private int tel;
 	private ProprietaireBoutique pb;
 	private List <Produit> produit;
+	private SecteurActivite secteuractivite;
+	private Administrateur administrateur;
 	
 	private static final long serialVersionUID = 1L;
 
-	
-	
-	
-	
 	
 	@Id
 	public int getId() {
@@ -44,7 +43,7 @@ public class Boutique implements Serializable{
 		this.tel = tel;
 	}
 	
-	@OneToOne
+	@OneToOne(mappedBy="boutique")
 	public ProprietaireBoutique getPb() {
 		return pb;
 	}
@@ -52,12 +51,28 @@ public class Boutique implements Serializable{
 		this.pb = pb;
 	}
 	
-	@OneToMany
+	@OneToMany(mappedBy="boutique")
 	public List<Produit> getProduit() {
 		return produit;
 	}
 	public void setProduit(List<Produit> produit) {
 		this.produit = produit;
+	}
+	
+	@ManyToOne
+	public SecteurActivite getSecteuractivite() {
+		return secteuractivite;
+	}
+	public void setSecteuractivite(SecteurActivite secteuractivite) {
+		this.secteuractivite = secteuractivite;
+	}
+	
+	@ManyToOne
+	public Administrateur getAdministrateur() {
+		return administrateur;
+	}
+	public void setAdministrateur(Administrateur administrateur) {
+		this.administrateur = administrateur;
 	}
 
 }

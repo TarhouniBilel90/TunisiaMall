@@ -6,8 +6,10 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-@Entity
+
+@MappedSuperclass
 public class Utilisateur implements Serializable{
 	
 	
@@ -22,7 +24,13 @@ public class Utilisateur implements Serializable{
 	private int tel;
 	private boolean notification;
 	
+	
+	
 	private static final long serialVersionUID = 1L;
+	
+	public Utilisateur() {
+		super();
+	}
 	
 	@Id
 	public int getId() {

@@ -11,7 +11,7 @@ public class Client extends Utilisateur implements Serializable {
 	
 	private List<Commande> commande;
 
-	@OneToMany
+	@OneToMany(mappedBy="client")
 	public List<Commande> getCommande() {
 		return commande;
 	}
@@ -19,5 +19,6 @@ public class Client extends Utilisateur implements Serializable {
 	public void setCommande(List<Commande> commande) {
 		this.commande = commande;
 	}
+
 
 }

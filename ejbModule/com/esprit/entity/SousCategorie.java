@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
@@ -14,8 +15,8 @@ public class SousCategorie implements Serializable {
 	private int id;
 	private String libelle;
 	private String description;
-	private List<Produit> produit;
-	private List<Categorie> categories;
+	private List<Produit> produits;
+	private Categorie categories;
 	
 	
 	
@@ -39,20 +40,22 @@ public class SousCategorie implements Serializable {
 		this.description = description;
 	}
 	
-	@OneToMany
+	@OneToMany(mappedBy="souscategories")
 	public List<Produit> getProduit() {
-		return produit;
+		return produits;
 	}
 	public void setProduit(List<Produit> produit) {
-		this.produit = produit;
+		this.produits = produit;
 	}
 	
-	@OneToMany
-	public List<Categorie> getCategories() {
+	@ManyToOne
+	public Categorie getCategories() {
 		return categories;
 	}
-	public void setCategories(List<Categorie> categories) {
+	public void setCategories(Categorie categories) {
 		this.categories = categories;
 	}
-
+	
+	
+	
 }

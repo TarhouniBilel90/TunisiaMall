@@ -9,13 +9,13 @@ import javax.persistence.OneToMany;
 @Entity
 public class Administrateur extends Utilisateur implements Serializable{
 
+	
+	
+	
 	private List<Boutique> boutique;
 	private List<Evenement> evenement;
 	
-	
-	
-
-	@OneToMany
+	@OneToMany(mappedBy="administrateur")
 	public List<Boutique> getBoutique() {
 		return boutique;
 	}
@@ -24,7 +24,7 @@ public class Administrateur extends Utilisateur implements Serializable{
 		this.boutique = boutique;
 	}
 	
-	@OneToMany
+	@OneToMany(mappedBy="administrateur")
 	public List<Evenement> getEvenement() {
 		return evenement;
 	}

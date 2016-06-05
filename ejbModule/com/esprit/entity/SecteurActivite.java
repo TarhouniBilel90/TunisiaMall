@@ -37,7 +37,7 @@ public class SecteurActivite implements Serializable{
 		this.description = description;
 	}
 	
-	@OneToMany
+	@OneToMany(mappedBy="secteuractivite")
 	public List<Boutique> getBoutique() {
 		return boutique;
 	}

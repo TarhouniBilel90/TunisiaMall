@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
@@ -20,7 +21,8 @@ public class Produit implements Serializable {
 	private float tva;
 	private List<Media> media;
 	private List<Commande> commandes;
-	
+	private SousCategorie souscategories;
+	private Boutique boutique;
 	
 	
 	
@@ -62,7 +64,7 @@ public class Produit implements Serializable {
 		this.tva = tva;
 	}
 	
-	@OneToMany
+	@OneToMany(mappedBy="produit")
 	public List<Media> getMedia() {
 		return media;
 	}
@@ -76,6 +78,22 @@ public class Produit implements Serializable {
 	}
 	public void setCommandes(List<Commande> commandes) {
 		this.commandes = commandes;
+	}
+	
+	@ManyToOne
+	public SousCategorie getSouscategories() {
+		return souscategories;
+	}
+	public void setSouscategories(SousCategorie souscategories) {
+		this.souscategories = souscategories;
+	}
+	
+	@ManyToOne
+	public Boutique getBoutique() {
+		return boutique;
+	}
+	public void setBoutique(Boutique boutique) {
+		this.boutique = boutique;
 	}
 
 }

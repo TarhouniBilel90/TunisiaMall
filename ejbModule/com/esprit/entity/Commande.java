@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Commande implements Serializable{
@@ -14,6 +15,7 @@ public class Commande implements Serializable{
 	private Date dateTraitement;
 	private Date dateLivraison;
 	private String etat;
+	private Client client;
 	
 	@Id
 	public int getId() {
@@ -45,6 +47,14 @@ public class Commande implements Serializable{
 	}
 	public void setEtat(String etat) {
 		this.etat = etat;
+	}
+	
+	@ManyToOne
+	public Client getClient() {
+		return client;
+	}
+	public void setClient(Client client) {
+		this.client = client;
 	}
 	
 	

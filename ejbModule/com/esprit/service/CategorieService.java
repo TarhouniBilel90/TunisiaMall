@@ -28,6 +28,7 @@ public class CategorieService implements CategorieServiceLocal,CategorieServiceR
 
 	@Override
 	public void modifierCategorie(Categorie categorie) {
+		entityManager.merge(categorie);
 	 
 	}
 
@@ -37,10 +38,5 @@ public class CategorieService implements CategorieServiceLocal,CategorieServiceR
 
 	}
 
-	@Override
-	public void saveCategorie(Categorie categorie) {
-		entityManager.merge(categorie);
-		
-	}
 
 }

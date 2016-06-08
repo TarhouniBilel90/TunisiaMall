@@ -11,7 +11,6 @@ public interface ProduitServiceRemote {
 	void desactiverProduit (Produit product);
 	void modifierProduit (Produit product);
 	List <Produit> findAllProduct();
-	void saveProduct (Produit product);
-
+ 
 	
 }

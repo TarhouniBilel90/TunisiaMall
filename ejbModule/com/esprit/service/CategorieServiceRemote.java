@@ -11,6 +11,6 @@ public interface CategorieServiceRemote {
 	void desactiverCategorie (Categorie categorie);
 	void modifierCategorie (Categorie categorie);
 	List <Categorie> findAllcategorie();
-	void saveCategorie (Categorie categorie);
+
 
 }

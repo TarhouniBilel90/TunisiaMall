@@ -1,7 +1,6 @@
 package com.esprit.service;
 
 import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,24 +29,15 @@ public class ProduitService implements ProduitServiceLocal,ProduitServiceRemote 
 	@Override
 	public void modifierProduit(Produit product) {
 
-
+		entityManager.merge(product);
 		
 	}
 
 	@Override
 	public List<Produit> findAllProduct() {
-
 		return entityManager.createQuery("Select p from produit p",Produit.class).getResultList();
 	}
 
-	@Override
-	public void saveProduct(Produit product) {
-		entityManager.merge(product);
-		
-	}
-	
-	
-	
-	
+
 
 }

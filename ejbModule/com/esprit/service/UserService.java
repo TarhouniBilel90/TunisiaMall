@@ -6,8 +6,9 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import com.esprit.entity.Utilisateur;
 
+import com.esprit.entity.User;
+ 
 
 import javax.persistence.TypedQuery;
 
@@ -21,25 +22,25 @@ public class UserService implements UserServiceRemote, UserServiceLocal {
     EntityManager entityManager;
 
 	@Override
-	public void createUser(Utilisateur user) {
+	public void createUser(User user) {
 		entityManager.persist(user);
 	}
 	
 	@Override
-	public void desactiverUser(Utilisateur user) {
+	public void desactiverUser(User user) {
 		entityManager.remove(user);
 	}
 	
 	@Override
-	public List<Utilisateur> findAllUsers() {
-	return entityManager.createQuery("Select u from utilisateur u",Utilisateur.class).getResultList();
+	public List<User> findAllUsers() {
+	return entityManager.createQuery("Select u from user u",User.class).getResultList();
 	}
 
 	@Override
-	public Utilisateur authentifcationUser(String login, String password) {
-    Utilisateur found = null;
-    String jpql="Select u from utilisateur u where u.login:=login and u.password=:password";
-    TypedQuery<Utilisateur> query=entityManager.createQuery(jpql,Utilisateur.class);
+	public User authentifcationUser(String login, String password) {
+		User found = null;
+    String jpql="Select u from user u where u.login:=login and u.password=:password";
+    TypedQuery<User> query=entityManager.createQuery(jpql,User.class);
 	query.setParameter("login", login);
 	query.setParameter("password", password);
 	try {

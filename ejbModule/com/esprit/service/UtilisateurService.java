@@ -2,7 +2,6 @@ package com.esprit.service;
 
 import java.util.List;
 import java.util.logging.Logger;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,7 +12,7 @@ import org.jboss.logmanager.Level;
 import com.esprit.entity.Utilisateur;
 
 @Stateless
-public class UtilisateurService implements UtilisateurSeriviceRemote,UtilisateurServiceLocal {
+public class UtilisateurService implements UtilisateurServiceRemote,UtilisateurServiceLocal {
     @PersistenceContext
     EntityManager entityManager;
 
@@ -29,7 +28,7 @@ public class UtilisateurService implements UtilisateurSeriviceRemote,Utilisateur
 	
 	@Override
 	public List<Utilisateur> findAllUsers() {
-	return entityManager.createQuery("Select u from utilisateur u",Utilisateur.class).getResultList();
+	return entityManager.createQuery("Select * from project.client ,project.administrateur,project.proprietaireboutique",Utilisateur.class).getResultList();
 	}
 
 	@Override
@@ -50,5 +49,6 @@ public class UtilisateurService implements UtilisateurSeriviceRemote,Utilisateur
 	    }
 	return found;
 	}
+	
 
 }

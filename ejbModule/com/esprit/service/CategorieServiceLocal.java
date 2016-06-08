@@ -2,9 +2,11 @@ package com.esprit.service;
 
 import java.util.List;
 
+import javax.ejb.Local;
+
 import com.esprit.entity.Categorie;
 
-
+@Local
 public interface CategorieServiceLocal {
 
 	void createCategorie (Categorie categorie);

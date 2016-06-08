@@ -3,13 +3,13 @@ package com.esprit.service;
 import java.util.List;
 import javax.ejb.Local;
 
-import com.esprit.entity.Utilisateur;
+import com.esprit.entity.User;
 
 @Local
 public interface UserServiceLocal {
-	void createUser(Utilisateur user);
-	void desactiverUser(Utilisateur user);
-	Utilisateur authentifcationUser(String login,String password);
-	List <Utilisateur> findAllUsers();
+	void createUser(User user);
+	void desactiverUser(User user);
+	User authentifcationUser(String login,String password);
+	List <User> findAllUsers();
 
 }

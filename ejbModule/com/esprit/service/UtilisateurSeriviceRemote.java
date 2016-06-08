@@ -1,12 +1,14 @@
 package com.esprit.service;
 
 import java.util.List;
-import javax.ejb.Local;
+
+import javax.ejb.Remote;
 
 import com.esprit.entity.Utilisateur;
 
-@Local
-public interface UserServiceLocal {
+@Remote
+public interface UtilisateurSeriviceRemote {
+	
 	void createUser(Utilisateur user);
 	void desactiverUser(Utilisateur user);
 	Utilisateur authentifcationUser(String login,String password);

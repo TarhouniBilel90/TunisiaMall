@@ -6,17 +6,14 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import com.esprit.entity.Utilisateur;
-
-
 import javax.persistence.TypedQuery;
 
-import org.jboss.logmanager.Level;;
+import org.jboss.logmanager.Level;
 
+import com.esprit.entity.Utilisateur;
 
 @Stateless
-public class UserService implements UserServiceRemote, UserServiceLocal {
-
+public class UtilisateurService implements UtilisateurSeriviceRemote,UtilisateurServiceLocal {
     @PersistenceContext
     EntityManager entityManager;
 
@@ -53,5 +50,5 @@ public class UserService implements UserServiceRemote, UserServiceLocal {
 	    }
 	return found;
 	}
-	
+
 }

@@ -11,5 +11,7 @@ public interface UserServiceLocal {
 	void desactiverUser(User user);
 	User authentifcationUser(String login,String password);
 	List <User> findAllUsers();
+	void deleteUser(User user);
+	void updateUser(User user);
 
 }

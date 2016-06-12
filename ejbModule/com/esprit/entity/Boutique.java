@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -12,36 +14,29 @@ import javax.persistence.OneToOne;
 @Entity
 public class Boutique implements Serializable{
 	
-	private int id;
-	private String localisation;
-	private int tel;
+	private Integer id;
+	private Integer num;
+	private String tel;
+	private String etat;
+	//louer ,vide,en négocaction
 	private ProprietaireBoutique pb;
 	private List <Produit> produit;
 	private SecteurActivite secteuractivite;
-	private Administrateur administrateur;
+	private SuperAdmin administrateur;
 	
 	private static final long serialVersionUID = 1L;
 
 	
 	@Id
-	public int getId() {
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getLocalisation() {
-		return localisation;
-	}
-	public void setLocalisation(String localisation) {
-		this.localisation = localisation;
-	}
-	public int getTel() {
-		return tel;
-	}
-	public void setTel(int tel) {
-		this.tel = tel;
-	}
+
+	
 	
 	@OneToOne(mappedBy="boutique")
 	public ProprietaireBoutique getPb() {
@@ -68,11 +63,29 @@ public class Boutique implements Serializable{
 	}
 	
 	@ManyToOne
-	public Administrateur getAdministrateur() {
+	public SuperAdmin getAdministrateur() {
 		return administrateur;
 	}
-	public void setAdministrateur(Administrateur administrateur) {
+	public void setAdministrateur(SuperAdmin administrateur) {
 		this.administrateur = administrateur;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public String getEtat() {
+		return etat;
+	}
+	public void setEtat(String etat) {
+		this.etat = etat;
+	}
+	public Integer getNum() {
+		return num;
+	}
+	public void setNum(Integer num) {
+		this.num = num;
 	}
 
 }

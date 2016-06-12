@@ -4,15 +4,17 @@ import java.util.List;
 
 import javax.ejb.Remote;
 
-import com.esprit.entity.User;
+import com.esprit.comman.CommanServiceLocal;
+import com.esprit.comman.CommanServiceRemote;
+import com.esprit.entity.Categorie;
+import com.esprit.entity.Utilisateur;
+ 
 
 @Remote
-public interface UserServiceRemote {
+public interface UserServiceRemote<T> extends CommanServiceRemote<T> {
 	
-	void createUser(User user);
-	void desactiverUser(User user);
-	User authentifcationUser(String login,String password);
-	List <User> findAllUsers();
-	void deleteUser(User user);
-	void updateUser(User user);
+
+	Utilisateur auth(Object u);
+
+
 }

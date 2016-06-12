@@ -1,17 +1,18 @@
 package com.esprit.service;
 
 import java.util.List;
+
 import javax.ejb.Local;
 
-import com.esprit.entity.User;
+import com.esprit.comman.CommanServiceLocal;
+import com.esprit.comman.CommanServiceRemote;
+import com.esprit.entity.Categorie;
+import com.esprit.entity.Utilisateur;
 
 @Local
-public interface UserServiceLocal {
-	void createUser(User user);
-	void desactiverUser(User user);
-	User authentifcationUser(String login,String password);
-	List <User> findAllUsers();
-	void deleteUser(User user);
-	void updateUser(User user);
+public interface UserServiceLocal<T> extends CommanServiceLocal<T>{
+
+		Utilisateur auth(Object u);
+
 
 }

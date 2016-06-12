@@ -5,6 +5,8 @@ package com.esprit.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
@@ -14,14 +16,15 @@ public class Utilisateur implements Serializable{
 	
 	
 	
-	private int id;
+	private Integer id;
 	private String nom;
 	private String prenom;
 	private String login;
 	private String password	;
 	private String email;
 	private String adresse;
-	private int tel;
+	private boolean enabled;
+	private String  tel;
 	private boolean notification;
 	
 	
@@ -33,10 +36,11 @@ public class Utilisateur implements Serializable{
 	}
 	
 	@Id
-	public int getId() {
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNom() {
@@ -75,17 +79,28 @@ public class Utilisateur implements Serializable{
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public int getTel() {
-		return tel;
-	}
-	public void setTel(int tel) {
-		this.tel = tel;
-	}
+
 	public boolean isNotification() {
 		return notification;
 	}
 	public void setNotification(boolean notification) {
 		this.notification = notification;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 	
 	

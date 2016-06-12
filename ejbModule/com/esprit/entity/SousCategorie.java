@@ -4,27 +4,33 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 
 @Entity
 public class SousCategorie implements Serializable {
 	
-	private int id;
+	private  Integer id;
 	private String libelle;
 	private String description;
-	private List<Produit> produits;
-	private Categorie categories;
+	private Categorie categorie;
+	private ShopOwner shopOwner;
 	
 	
 	
 	@Id
-	public int getId() {
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getLibelle() {
@@ -40,20 +46,23 @@ public class SousCategorie implements Serializable {
 		this.description = description;
 	}
 	
-	@OneToMany(mappedBy="souscategories")
-	public List<Produit> getProduit() {
-		return produits;
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn
+	public Categorie getCategorie() {
+		return categorie;
 	}
-	public void setProduit(List<Produit> produit) {
-		this.produits = produit;
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
 	}
 	
-	@ManyToOne
-	public Categorie getCategories() {
-		return categories;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn
+	public ShopOwner getShopOwner() {
+		return shopOwner;
 	}
-	public void setCategories(Categorie categories) {
-		this.categories = categories;
+	public void setShopOwner(ShopOwner shopOwner) {
+		this.shopOwner = shopOwner;
 	}
 	
 	

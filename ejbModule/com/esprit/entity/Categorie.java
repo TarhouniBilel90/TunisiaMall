@@ -4,9 +4,14 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Categorie implements Serializable {
@@ -14,9 +19,13 @@ public class Categorie implements Serializable {
 	private int id;
 	private String libelle;
 	private String description;
-	private List<SousCategorie> soucategories;
+	private SecteurActivite secteurActivite;
+	
+
+
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getId() {
 		return id;
 	}
@@ -37,16 +46,16 @@ public class Categorie implements Serializable {
 	}
 	
 	
-	@OneToMany(mappedBy="categories")
-	public List<SousCategorie> getSoucategories() {
-		return soucategories;
-	}
-	public void setSoucategories(List<SousCategorie> soucategories) {
-		this.soucategories = soucategories;
-	}
 	
 	
-
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn
+	public SecteurActivite getSecteurActivite() {
+		return secteurActivite;
+	}
+	public void setSecteurActivite(SecteurActivite secteurActivite) {
+		this.secteurActivite = secteurActivite;
+	}
 
 	
 	

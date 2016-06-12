@@ -15,7 +15,7 @@ public class Evenement implements Serializable{
 	private Date dateDebut;
 	private Date dateFin;
 	private String description;
-	private Administrateur administrateur;
+	private SuperAdmin administrateur;
 	
 	
 	@Id
@@ -44,10 +44,10 @@ public class Evenement implements Serializable{
 		this.description = description;
 	}
 	@ManyToOne
-	public Administrateur getAdministrateur() {
+	public SuperAdmin getAdministrateur() {
 		return administrateur;
 	}
-	public void setAdministrateur(Administrateur administrateur) {
+	public void setAdministrateur(SuperAdmin administrateur) {
 		this.administrateur = administrateur;
 	}
 	

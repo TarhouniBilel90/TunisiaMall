@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Boutique implements Serializable{
 	
-	private int id;
+	private int id22;
 	private String localisation;
 	private int tel;
 	private ProprietaireBoutique pb;

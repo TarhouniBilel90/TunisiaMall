@@ -18,7 +18,6 @@ public class Boutique implements Serializable{
 	private Integer num;
 	private String tel;
 	private String etat;
-	//louer ,vide,en négocaction
 	private ProprietaireBoutique pb;
 	private List <Produit> produit;
 	private SecteurActivite secteuractivite;

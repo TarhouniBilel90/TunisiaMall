@@ -24,7 +24,6 @@ public class UserService<T> extends CommanService<T> implements UserServiceLocal
 		} catch (Exception e) {
 			return null;
 		}
-		
 	}
 
 

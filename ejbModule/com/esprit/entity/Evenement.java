@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Evenement implements Serializable{
 	
-	private int id;
+	private Integer id;
 	private Date dateDebut;
 	private Date dateFin;
 	private String description;
@@ -19,10 +19,10 @@ public class Evenement implements Serializable{
 	
 	
 	@Id
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Date getDateDebut() {

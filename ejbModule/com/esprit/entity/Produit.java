@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -13,11 +15,11 @@ import javax.persistence.OneToMany;
 @Entity
 public class Produit implements Serializable {
 	
-	private int id;
+	private Integer id;
 	private String libelle;
 	private String description;
 	private float prixHt;
-	private int quantite;
+	private Integer quantite;
 	private float tva;
 	private List<Media> media;
 	private List<Commande> commandes;
@@ -27,10 +29,11 @@ public class Produit implements Serializable {
 	
 	
 	@Id
-	public int getId() {
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getLibelle() {
@@ -51,10 +54,12 @@ public class Produit implements Serializable {
 	public void setPrixHt(float prixHt) {
 		this.prixHt = prixHt;
 	}
-	public int getQuantite() {
+	
+	
+	public Integer getQuantite() {
 		return quantite;
 	}
-	public void setQuantite(int quantite) {
+	public void setQuantite(Integer quantite) {
 		this.quantite = quantite;
 	}
 	public float getTva() {

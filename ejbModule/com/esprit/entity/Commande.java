@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Commande implements Serializable{
 	
-	private int id;
+	private Integer id;
 	private Date dateDemande;
 	private Date dateTraitement;
 	private Date dateLivraison;
@@ -18,10 +18,10 @@ public class Commande implements Serializable{
 	private Client client;
 	
 	@Id
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Date getDateDemande() {

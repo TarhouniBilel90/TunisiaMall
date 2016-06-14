@@ -45,10 +45,7 @@ public class Boutique implements Serializable{
 		this.pb = pb;
 	}
 	
-	@OneToMany(mappedBy="boutique")
-	public List<Produit> getProduit() {
-		return produit;
-	}
+
 	public void setProduit(List<Produit> produit) {
 		this.produit = produit;
 	}

@@ -24,7 +24,7 @@ public class Produit implements Serializable {
 	private List<Media> media;
 	private List<Commande> commandes;
 	private SousCategorie souscategories;
-
+	private Boutique boutique;
 	
 	
 	
@@ -93,5 +93,12 @@ public class Produit implements Serializable {
 		this.souscategories = souscategories;
 	}
 	
-	
+	@ManyToOne
+	public Boutique getBoutique() {
+		return boutique;
+	}
+	public void setBoutique(Boutique boutique) {
+		this.boutique = boutique;
+	}
+
 }

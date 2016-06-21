@@ -15,5 +15,6 @@ public interface CommanServiceRemote<T> {
 	void delete(T o,String field,String id);
 	void delete(T o);
 	void update(T o);
+	ArrayList<Object> findListById(Object o, String field, String id);
 
 }

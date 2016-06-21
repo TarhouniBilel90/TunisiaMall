@@ -2,13 +2,9 @@ package com.esprit.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -21,9 +17,7 @@ public class Commande implements Serializable{
 	private String etat;
 	private Client client;
 	
-	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}
@@ -62,7 +56,6 @@ public class Commande implements Serializable{
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	
 	
 	
 	

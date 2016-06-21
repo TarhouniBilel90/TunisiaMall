@@ -12,7 +12,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/saddem/Downloads/javax.persistence-2.1.0.jar"/>
 	<classpathentry kind="lib" path="/ejbTestClient/lib/jboss-client.jar"/>
+	<classpathentry kind="lib" path="/Users/haythemhedfi/Desktop/New folder/javax.persistence-2.1.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -2,13 +2,11 @@ package com.esprit.entity;
 
 import java.io.Serializable;
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -18,8 +16,11 @@ public class Boutique implements Serializable{
 	private Integer num;
 	private String tel;
 	private String etat;
+	private String libelle;
+
+
 	private ProprietaireBoutique pb;
-	private List <Produit> produit;
+
 	private SecteurActivite secteuractivite;
 	private SuperAdmin administrateur;
 	
@@ -46,9 +47,6 @@ public class Boutique implements Serializable{
 	}
 	
 
-	public void setProduit(List<Produit> produit) {
-		this.produit = produit;
-	}
 	
 	@ManyToOne
 	public SecteurActivite getSecteuractivite() {
@@ -71,6 +69,14 @@ public class Boutique implements Serializable{
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+	
+	public String getLibelle() {
+		return libelle;
+	}
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
+	
 	public String getEtat() {
 		return etat;
 	}

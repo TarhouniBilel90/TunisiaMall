@@ -36,11 +36,17 @@ public class CommanService<T> implements CommanServiceLocal,CommanServiceRemote{
 	
 	@Override
 	public ArrayList<T> findReqList(Object o, String req) {
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
 				return (ArrayList<T>) em.createQuery("select c from   "+o.getClass().getSimpleName()+" c where "+req).getResultList();
 
 	}
+
+	
+	@Override
+	public ArrayList<Object>  findListById(Object o, String field,String id) {
+		// TODO Auto-generated method stub
+		return (ArrayList<Object>) em.createQuery("select c from "+o.getClass().getSimpleName()+" c where c."+field+"="+id).getResultList();
+	}
+
 
 	
 	@Override
@@ -49,7 +55,6 @@ public class CommanService<T> implements CommanServiceLocal,CommanServiceRemote{
 		return em.createQuery("select c from "+o.getClass().getSimpleName()+" c where c."+field+"="+id).getSingleResult();
 	}
 
-	@Override
 	public ArrayList<Object> findAll(Object o) {
 		
 		return (ArrayList<Object>) em.createQuery("Select u from "+o.getClass().getSimpleName()+" u",o.getClass()).getResultList();
